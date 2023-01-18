@@ -10,7 +10,7 @@
     <title th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo cliente' : 'Spring Fundamentos - Editar cliente'}"></title>
 </head>
 <body>
-    <div th:insert="~{fragments/_navbar :: nav}"></div>
+    <div th:replace="~{fragments/_navbar :: nav}"></div>
 
     <main class="container">
         <div class="row">
