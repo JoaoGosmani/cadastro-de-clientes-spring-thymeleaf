@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
 <head>
-    <title th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo cliente' : 'Spring Fundamentos - Editar cliente'}"></title>
+    <title th:text="${cliente.id == null ? #formulario.title.cadastrar : #formulario.title.editar}"></title>
 </head>
 <body>
     <main class="container">
@@ -20,7 +20,7 @@
                     <div th:replace="~{fragments/_bootstrap-fields :: input ('dataNascimento', 'Data de nascimento', 'date')}"></div>
                     <div th:replace="~{fragments/_bootstrap-fields :: input ('profissao', 'Profissão', 'text')}"></div>
 
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary" th:text="#{formulario.botao.salvar}"></button>
                 </form>
             </div>
         </div>

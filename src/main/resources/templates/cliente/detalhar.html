@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
 <head>
-    <title>Spring Fundamentos - Detalhes do cliente</title>
+    <title th:text="#{detalhar.title}"></title>
 </head>
 <body>
     <main class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Detalhes do cliente</h1>   
+                <h1 th:text="#{detalhar.header}"></h1>   
             </div>
         </div>
 
@@ -16,20 +16,17 @@
                 <div class="card">
                     <h5 class="card-header" th:text="${cliente.nome}"></h5>
                     <div class="card-body">
-                        <p>
-                            Profissão: <span th:text="${cliente.profissao}"></span>
+                        <p th:text="#{detalhar.card.profissao} + ' ' + ${cliente.profissao}">
                         </p>
-                        <p>
-                            Data de nascimento: <span th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></span>
-                        </p>
+                        <p th:text="#{detalhar.card.dataNascimento} + ' ' + ${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></p>
 
-                        <a th:href="@{/clientes/{id}/editar (id=${cliente.id})}" class="btn btn-warning">Editar</a>
+                        <a th:href="@{/clientes/{id}/editar (id=${cliente.id})}" class="btn btn-warning" th:text="#{detalhar.card.acao.editar}"></a>
                         <a 
                             th:href="@{/clientes/{id}/excluir (id=${cliente.id})}" 
                             class="btn btn-danger"
                             onclick="return confirm('Tem certeza que deseja excluir o cliente?');"
+                            th:text="#{detalhar.card.acao.excluir}"
                         >
-                            Excluir
                         </a>
                     </div>
                 </div>
