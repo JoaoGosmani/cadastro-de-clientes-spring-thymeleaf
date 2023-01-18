@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 
-    <title>Spring Fundamentos - Editar cliente</title>
+    <title th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo cliente' : 'Spring Fundamentos - Editar cliente'}"></title>
 </head>
 <body>
     <nav class="navbar bg-body-tertiary">
@@ -19,7 +19,7 @@
     <main class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Editar cliente</h1>   
+                <h1 th:text="${cliente.id == null ? 'Cadastrar novo cliente' : 'Editar cliente'}"></h1>
             </div>
         </div>
 
